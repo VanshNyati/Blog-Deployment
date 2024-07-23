@@ -3,9 +3,12 @@
     "version": "1.0.0",
     "description": "",
     "main": "server.js",
-    "scripts": {
-        "start": "nodemon server.js "
-    },
+
+"scripts": {
+    "dev": "nodemon Backend/server.js",
+    "start": "node Backend/server.js",
+    "build": "npm install && npm install --prefix Frontend && npm run build --prefix Frontend"
+  },
     
     "keywords": [],
     "author": "Gilbert Hutapea ",

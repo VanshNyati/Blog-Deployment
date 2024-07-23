@@ -16,13 +16,17 @@ const app = express() ;
 app.use(express.json())
 app.use(cors())
 
-app.use("/",IndexRoute)
-
 app.use(customErrorHandler)
 
-const PORT = process.env.PORT || 5000 ;
+const PORT = process.env.PORT || 5000;
 
-app.use(express.static(path.join(__dirname , "public") ))
+app.use(express.static(path.join(__dirname, "../Frontend/build")))
+
+app.use("/",IndexRoute)
+
+app.get("*",(req,res) => {
+    res.sendFile(path.join(__dirname, '../Frontend/build/index.html'))
+})
 
 const server = app.listen(PORT,()=>{
 
